@@ -127,7 +127,7 @@ services:
       KAFKA_BROKERS: kafka:29092
       KAFKA_TOPIC: events
       KAFKA_GROUP_ID: event-consumer-group
-      CONSUMER_BATCH_SIZE: "500"
+      CONSUMER_BATCH_SIZE: "100"
       CONSUMER_FLUSH_INTERVAL_MS: "200"
     depends_on:
       kafka:

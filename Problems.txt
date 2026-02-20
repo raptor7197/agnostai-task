@@ -1,0 +1,19 @@
+The multibatch try when fails it falls back to single event processing without retrying it.
+should prolly implement a retry logic for the multibatch try 
+
+right now the consumer is draining at a very slow rate if i can increase the batch process size in the docker file or increase teh handling capabilities in it 
+
+teh api requests are blocked until kafka sends and ack to acknowledge the right  with high req with low batch size and batch timeout so kafka will become a bottle neck 
+
+clickhouse write speeds are slow and Kafka consumer not committing offsets fast enough
+clickhouse merges can compete 
+
+can implement dlq for failed messages 
+pagination can be implemented 
+
+
+consumer has 2 modes 
+1- batch processing 
+2- single message if batch fails 
+
+error handling can be improved for multibatch failure no proper retry mech exists 

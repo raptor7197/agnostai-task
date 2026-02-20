@@ -19,7 +19,7 @@ func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	log.Println("[api] starting event analytics API server")
 
-	// --- Configuration from environment variables ---
+	// Configuration from environment variables 
 	chHost := getEnv("CLICKHOUSE_HOST", "localhost")
 	chPort := getEnvInt("CLICKHOUSE_PORT", 9000)
 	chDB := getEnv("CLICKHOUSE_DATABASE", "event_analytics")
@@ -31,7 +31,7 @@ func main() {
 
 	apiPort := getEnv("API_PORT", "8080")
 
-	// --- ClickHouse Setup ---
+	// ClickHouse Setup 
 	chCfg := clickhouse.Config{
 		Host:     chHost,
 		Port:     chPort,
