@@ -1,0 +1,63 @@
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+/api
+/consumer
+/benchmark
+
+# Go build artifacts
+*.o
+*.a
+*.test
+*.out
+*.prof
+*.pprof
+
+# Go workspace
+go.work
+go.work.sum
+
+# Vendor (if not committing)
+# vendor/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Docker volumes (local data)
+docker-data/
+clickhouse-data/
+kafka-data/
+zookeeper-data/
+
+# Benchmark results (large files)
+benchmark/results/
+*.csv
+*.log
+
+# Python SDK artifacts
+sdk/python/__pycache__/
+sdk/python/*.egg-info/
+sdk/python/dist/
+sdk/python/build/
+*.pyc
+*.pyo
+
+# OS files
+.DS_Store
+.Spotlight-V100
+.Trashes

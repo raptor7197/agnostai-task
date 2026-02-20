@@ -1,0 +1,48 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+*.md
+!README.md
+LICENSE
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker files (no need to copy into build context)
+docker-compose.yml
+Dockerfile.*
+
+# Local data / volumes
+docker-data/
+clickhouse-data/
+kafka-data/
+zookeeper-data/
+
+# Benchmark results
+benchmark/results/
+*.csv
+*.log
+
+# Python SDK (not needed for Go builds)
+sdk/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Test artifacts
+*.test
+*.out
+*.prof
+coverage.html
