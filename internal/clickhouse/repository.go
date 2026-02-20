@@ -311,7 +311,7 @@ type LatencyStatsResult struct {
 	EventCount     uint64  `json:"event_count"`
 }
 
-// GetP95LatencyPerEventPerSession returns p95 latency per event type per session.
+//  returns p95 latency per event type per session.
 // Query: "p95 latency per event type per session"
 func (r *Repository) GetP95LatencyPerEventPerSession(ctx context.Context, limit int) ([]LatencyStatsResult, error) {
 	if limit <= 0 {
@@ -354,7 +354,7 @@ func (r *Repository) GetP95LatencyPerEventPerSession(ctx context.Context, limit 
 	return results, nil
 }
 
-// SessionErrorRateResult holds error rate per session
+//  holds error rate per session
 type SessionErrorRateResult struct {
 	ConversationID string  `json:"conversation_id"`
 	TotalEvents    uint64  `json:"total_events"`
@@ -362,7 +362,7 @@ type SessionErrorRateResult struct {
 	ErrorRate      float64 `json:"error_rate"`
 }
 
-// GetTopSessionsByErrorRate returns top sessions by error rate.
+//  returns top sessions by error rate.
 // Query: "Top sessions by error rate"
 func (r *Repository) GetTopSessionsByErrorRate(ctx context.Context, limit int) ([]SessionErrorRateResult, error) {
 	if limit <= 0 {
@@ -406,7 +406,7 @@ func (r *Repository) GetTopSessionsByErrorRate(ctx context.Context, limit int) (
 	return results, nil
 }
 
-// BatchInsertEvents inserts multiple events in a batch for better performance.
+//  inserts multiple events in a batch for better performance.
 // Used by the consumer for batch processing.
 func (r *Repository) BatchInsertEvents(ctx context.Context, events []*models.Event) error {
 	if len(events) == 0 {
