@@ -10,7 +10,6 @@ import (
 	"github.com/ClickHouse/clickhouse-go/v2/lib/driver"
 )
 
-// Config holds ClickHouse connection configuration
 type Config struct {
 	Host     string
 	Port     int
@@ -19,13 +18,12 @@ type Config struct {
 	Password string
 }
 
-// Client wraps the ClickHouse connection
 type Client struct {
 	Conn   driver.Conn
 	Config Config
 }
 
-// DefaultConfig returns a default ClickHouse configuration
+// default config
 func DefaultConfig() Config {
 	return Config{
 		Host:     "localhost",
@@ -70,7 +68,7 @@ func NewClient(cfg Config) (*Client, error) {
 	return client, nil
 }
 
-// PingWithRetry attempts to ping ClickHouse with retries
+//  attempts to ping ClickHouse with retries
 func (c *Client) PingWithRetry(maxRetries int, delay time.Duration) error {
 	ctx := context.Background()
 	var lastErr error
@@ -92,7 +90,7 @@ func (c *Client) Close() error {
 	return c.Conn.Close()
 }
 
-// EnsureDatabase creates the database if it doesn't exist.
+// creates the db if dont exist 
 // This needs a separate connection to the 'default' database first.
 func EnsureDatabase(cfg Config) error {
 	conn, err := clickhouse.Open(&clickhouse.Options{
@@ -109,7 +107,7 @@ func EnsureDatabase(cfg Config) error {
 	}
 	defer conn.Close()
 
-	// Retry ping
+	// Retry ping loginc
 	ctx := context.Background()
 	for i := 0; i < 30; i++ {
 		if err := conn.Ping(ctx); err != nil {
