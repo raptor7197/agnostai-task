@@ -7,7 +7,7 @@
 bin/
 /api
 /consumer
-/benchmark
+
 
 # Go build artifacts
 *.o
